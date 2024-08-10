@@ -1,4 +1,2 @@
 pip install streamlit yfinance plotly requests pandas newsapi-python nltk groq scikit-learn
-groq api: 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
-finhub api: cqr3m31r01qgo4fv7bb0cqr3m31r01qgo4fv7bbg
-news api: 8b515c2a8aa84149aff9c3953a297b92
+

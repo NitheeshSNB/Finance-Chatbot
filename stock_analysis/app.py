@@ -57,6 +57,7 @@ def check_credentials():
 def fetch_live_stock_data(symbol):
     url = f"https://finnhub.io/api/v1/quote?symbol={symbol}&token={FINNHUB_API_KEY}"
     response = requests.get(url)
+    print(response.json())
     if response.status_code == 200:
         return response.json()
     else:
@@ -172,7 +173,7 @@ def main():
         if st.sidebar.button("Fetch Stock Data", key="fetch_stock_data_button"):
             stock_data = fetch_live_stock_data(stock_symbol)
             if stock_data:
-                st.subheader("Live Stock Data")
+                st.subheader(stock_symbol+" Live Stock Data")
                 df = pd.DataFrame.from_dict(stock_data, orient='index', columns=["Value"])
                 df.index = ["Current Price", "High", "Low", "Open", "Previous Close", "Timestamp", "Change", "Percent Change"]
                 st.table(df)
